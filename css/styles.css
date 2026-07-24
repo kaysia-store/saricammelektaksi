@@ -1580,6 +1580,105 @@ button {
   transform: translateX(-50%) translateY(0);
 }
 
+/* PWA install banner */
+.pwa-install {
+  position: fixed;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 1rem;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 0.95rem;
+  border-radius: 1.15rem;
+  background: rgba(18, 18, 18, 0.96);
+  border: 1px solid rgba(255, 193, 7, 0.28);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(14px);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1.25rem);
+  transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s;
+  pointer-events: none;
+}
+
+.pwa-install.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.pwa-install-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: #0c0c0c;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+  padding: 4px;
+}
+
+.pwa-install-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.pwa-install-copy strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  margin-bottom: 0.15rem;
+}
+
+.pwa-install-copy span {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.pwa-install-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.pwa-install-btn {
+  min-height: 40px;
+  padding: 0.45rem 0.85rem;
+  border-radius: 0.7rem;
+  background: var(--yellow);
+  color: var(--yellow-text);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.pwa-install-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 420px) {
+  .pwa-install {
+    flex-wrap: wrap;
+  }
+  .pwa-install-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-bg img,
   .hero-wing,
