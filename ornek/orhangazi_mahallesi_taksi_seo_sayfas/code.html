@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Orhangazi Mahallesi Taksi - Sarıçam Melek Taksi</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-secondary-fixed-variant": "#474746",
+                      "on-secondary-container": "#636262",
+                      "background": "#f9f9f9",
+                      "tertiary": "#005bc1",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#f1f1f1",
+                      "on-primary-fixed": "#241a00",
+                      "tertiary-fixed-dim": "#adc6ff",
+                      "on-tertiary-fixed-variant": "#004493",
+                      "on-primary-fixed-variant": "#584400",
+                      "tertiary-fixed": "#d8e2ff",
+                      "surface-container-low": "#f3f3f3",
+                      "secondary": "#5f5e5e",
+                      "on-secondary": "#ffffff",
+                      "surface-bright": "#f9f9f9",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "outline-variant": "#d2c5ab",
+                      "primary-fixed": "#ffe08b",
+                      "on-tertiary-container": "#0056b8",
+                      "secondary-container": "#e2dfde",
+                      "on-secondary-fixed": "#1c1b1b",
+                      "error": "#ba1a1a",
+                      "on-primary-container": "#6f5700",
+                      "on-background": "#1a1c1c",
+                      "primary-container": "#ffcc00",
+                      "inverse-primary": "#f1c100",
+                      "surface-variant": "#e2e2e2",
+                      "outline": "#80765f",
+                      "on-surface-variant": "#4e4632",
+                      "on-surface": "#1a1c1c",
+                      "primary": "#745b00",
+                      "on-tertiary": "#ffffff",
+                      "on-error-container": "#93000a",
+                      "inverse-surface": "#2f3131",
+                      "primary-fixed-dim": "#f1c100",
+                      "surface-container-lowest": "#ffffff",
+                      "on-error": "#ffffff",
+                      "tertiary-container": "#bfd2ff",
+                      "surface-container-highest": "#e2e2e2",
+                      "surface": "#f9f9f9",
+                      "surface-container": "#eeeeee",
+                      "error-container": "#ffdad6",
+                      "surface-container-high": "#e8e8e8",
+                      "on-tertiary-fixed": "#001a41",
+                      "surface-tint": "#745b00",
+                      "surface-dim": "#dadada",
+                      "secondary-fixed": "#e5e2e1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-desktop": "40px",
+                      "base": "8px",
+                      "section-gap": "80px",
+                      "container-max": "1200px",
+                      "gutter": "24px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "caption": [
+                              "Inter"
+                      ],
+                      "headline-md": [
+                              "Montserrat"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ],
+                      "display-lg": [
+                              "Montserrat"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "display-lg-mobile": [
+                              "Montserrat"
+                      ],
+                      "label-bold": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "caption": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "display-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-bold": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "letterSpacing": "0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+      </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased pt-20">
+<!-- TopNavBar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-desktop h-20 bg-surface/90 backdrop-blur-md shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">local_taxi</span>
+<a class="text-headline-md font-headline-md font-bold text-on-surface" href="#">Sarıçam Melek Taksi</a>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Hizmetler</a>
+<a class="text-primary font-bold border-b-2 border-primary pb-1 hover:text-primary transition-colors duration-200" href="#">Bölgeler</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">Neden Biz</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-200" href="#">SSS</a>
+</div>
+<button class="bg-primary-container text-on-primary-container font-label-bold text-label-bold px-6 py-3 rounded-full hover:bg-primary-fixed hover:shadow-md transition-all hidden md:flex items-center gap-2">
+<span class="material-symbols-outlined text-lg">call</span>
+            Taksi Çağır
+        </button>
+<!-- Mobile Menu Icon -->
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</nav>
+<!-- Hero Section -->
+<section class="relative w-full min-h-[819px] flex items-center justify-center pt-10">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A modern yellow taxi driving smoothly through a well-lit urban street at twilight, sleek modern buildings in the background, soft warm streetlights reflecting on the wet asphalt, emphasizing speed and reliability." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPMk5VYmHZz7LFua2OJEfZj3NyKCq9FcTOnbM1ol89Tk4DSvdXgZvZza6jPsq25UHzQ0Q1-wi2WsjstrqpfZQRIRfGgiUu0gNZKxJBX4K2Y4BFQ2zzE29KnYzKollyQNRcfKAC5ihH-6zVJyPhBDK6htrAJ9mVrAInCcu4rvPKpRMbGxnoIN5j9OQcR2Jbf9PmlD1mUDawS4p9fZwysKufcg25ZF75qLTdfasVpGW9aBBQ8s2eqMe6VnDPjw51yOx_h5K1iDR7sA"/>
+<div class="absolute inset-0 bg-gradient-to-r from-on-background/90 to-on-background/40"></div>
+</div>
+<div class="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-left">
+<div class="max-w-2xl text-on-primary">
+<span class="inline-block py-1 px-3 mb-4 rounded-full bg-surface-variant/20 backdrop-blur-sm border border-surface-variant/30 text-surface-bright font-caption text-caption uppercase tracking-wider">
+                    Bölgesel Hizmet
+                </span>
+<h1 class="font-display-lg-mobile text-display-lg-mobile md:font-display-lg md:text-display-lg mb-6 leading-tight">
+                    Orhangazi Mahallesi Taksi - <span class="text-primary-container">Hızlı ve Konforlu Yolculuk</span>
+</h1>
+<p class="font-body-lg text-body-lg mb-10 text-surface-container-low opacity-90 max-w-xl">
+                    Orhangazi Mahallesi'nin her noktasına dakikalar içinde ulaşıyoruz. Güvenli, temiz ve modern araçlarımızla 7/24 hizmetinizdeyiz.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="flex-1 sm:flex-none justify-center bg-primary-container text-on-primary-fixed font-headline-md text-body-md font-bold px-8 py-4 rounded-lg flex items-center gap-3 hover:bg-primary-fixed transition-all shadow-[0_4px_20px_rgba(255,204,0,0.3)] hover:scale-105">
+<span class="material-symbols-outlined">phone_in_talk</span>
+                        Taksi Çağır
+                    </button>
+<button class="flex-1 sm:flex-none justify-center bg-[#25D366] text-white font-headline-md text-body-md font-bold px-8 py-4 rounded-lg flex items-center gap-3 hover:bg-[#1EBE5D] transition-all shadow-md hover:scale-105">
+<span class="material-symbols-outlined">chat</span>
+                        WhatsApp Hattı
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Features Section (Bento Grid) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Orhangazi Bölgesi Hizmetlerimiz</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Mahallenizdeki günlük ihtiyaçlarınızdan özel transferlerinize kadar geniş bir yelpazede güvenilir ulaşım çözümleri sunuyoruz.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Card 1 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-surface-variant/50 hover:-translate-y-1 transition-transform">
+<div class="w-14 h-14 bg-primary-container/20 rounded-full flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined text-3xl">location_city</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">Şehir İçi Ulaşım</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Orhangazi Mahallesi'nden şehir merkezine, hastanelere veya alışveriş merkezlerine hızlı ve trafik stresinden uzak ulaşım.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-surface-variant/50 hover:-translate-y-1 transition-transform">
+<div class="w-14 h-14 bg-tertiary-container/20 rounded-full flex items-center justify-center mb-6 text-tertiary">
+<span class="material-symbols-outlined text-3xl">flight_takeoff</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">Havalimanı Transferi</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Uçuşlarınıza zamanında yetişin. Geniş bagaj hacimli araçlarımızla havalimanına konforlu ve stressiz bir yolculuk.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.04)] border border-surface-variant/50 hover:-translate-y-1 transition-transform md:col-span-1">
+<div class="w-14 h-14 bg-surface-container-high rounded-full flex items-center justify-center mb-6 text-on-surface">
+<span class="material-symbols-outlined text-3xl">dark_mode</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold text-on-surface mb-3">Gece Taksisi</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Geç saatlerde güvenli eve dönüş garantisi. 7/24 kesintisiz hizmet ile gecenin her saati yanınızdayız.</p>
+</div>
+</div>
+</section>
+<!-- How it Works Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-4">Nasıl Çağırırım?</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Sadece üç basit adımda kapınızdayız.</p>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-center gap-10 relative">
+<!-- Connecting Line (Desktop) -->
+<div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-surface-variant -translate-y-1/2 z-0"></div>
+<!-- Step 1 -->
+<div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/3">
+<div class="w-20 h-20 bg-surface-container-lowest rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.08)] flex items-center justify-center mb-6 border-4 border-surface-container-low">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">phone_iphone</span>
+</div>
+<h3 class="font-label-bold text-label-bold text-on-surface mb-2">1. Ara veya Yaz</h3>
+<p class="font-body-md text-caption text-on-surface-variant">Bizi arayın veya WhatsApp'tan ulaşın.</p>
+</div>
+<!-- Step 2 -->
+<div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/3">
+<div class="w-20 h-20 bg-surface-container-lowest rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.08)] flex items-center justify-center mb-6 border-4 border-surface-container-low">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">pin_drop</span>
+</div>
+<h3 class="font-label-bold text-label-bold text-on-surface mb-2">2. Konum Paylaş</h3>
+<p class="font-body-md text-caption text-on-surface-variant">Orhangazi Mah.'deki tam konumunuzu iletin.</p>
+</div>
+<!-- Step 3 -->
+<div class="relative z-10 flex flex-col items-center text-center w-full md:w-1/3">
+<div class="w-20 h-20 bg-primary-container rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.08)] flex items-center justify-center mb-6 border-4 border-surface-container-low">
+<span class="material-symbols-outlined text-on-primary-fixed text-4xl" style="font-variation-settings: 'FILL' 1;">directions_car</span>
+</div>
+<h3 class="font-label-bold text-label-bold text-on-surface mb-2">3. Taksi Kapında</h3>
+<p class="font-body-md text-caption text-on-surface-variant">Dakikalar içinde aracınız hazır.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row items-center gap-12">
+<div class="w-full md:w-1/2 relative">
+<div class="rounded-2xl overflow-hidden shadow-[0_12px_40px_rgba(0,0,0,0.08)] aspect-square md:aspect-[4/3]">
+<img class="w-full h-full object-cover" data-alt="Interior view of a modern luxury taxi from the backseat, showing pristine clean leather seats, a clear partition for safety, and a professional driver in uniform looking ahead, emphasizing safety, cleanliness, and premium service." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVySBtPBFF0xCjkxbH9aibvXoxELrLUz5j3rFdTzY083PDBWloCplR7moSlYW_W-9BkqO0z7NO-w-qR3fl9lX5oBWvHINehKeMGxuTdOh5fltogeAZHj-XzZ6kv4sMJtQFWi2BSZRyTw09U3GSuT7dMmMEn_qxiXpf8lRoBhGTDjMxhMi1DwAKEg-bl4IqvS0PIxrStGVqsiNOWSIeRjHNfXtXMFHsdgNyJnsBUH3ArWmiSozEmqSBV4CCEDE2khgUhM5qyqldmw"/>
+</div>
+<!-- Badge -->
+<div class="absolute -bottom-6 -right-6 bg-surface-container-lowest p-4 rounded-xl shadow-lg border border-surface-variant/30 flex items-center gap-3">
+<span class="material-symbols-outlined text-green-500 text-3xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<div>
+<p class="font-label-bold text-label-bold text-on-surface">%100 Güvenli</p>
+<p class="font-caption text-caption text-on-surface-variant">Profesyonel Şoförler</p>
+</div>
+</div>
+</div>
+<div class="w-full md:w-1/2">
+<h2 class="font-headline-md text-headline-md text-on-surface mb-6">Güvenli ve Şeffaf Yolculuk</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">Sarıçam Melek Taksi olarak önceliğimiz sizin güvenliğiniz ve konforunuzdur. Araçlarımız düzenli olarak dezenfekte edilir ve bakımları eksiksiz yapılır.</p>
+<ul class="space-y-4">
+<li class="flex items-start gap-4">
+<div class="mt-1 bg-surface-container p-2 rounded-full text-on-surface">
+<span class="material-symbols-outlined text-sm">payments</span>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface">Sabit Fiyat Garantisi</h4>
+<p class="font-body-md text-caption text-on-surface-variant mt-1">Sürpriz ücretler yok, yola çıkmadan önce tahmini tutarı öğrenebilirsiniz.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="mt-1 bg-surface-container p-2 rounded-full text-on-surface">
+<span class="material-symbols-outlined text-sm">workspace_premium</span>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface">Deneyimli Kadro</h4>
+<p class="font-body-md text-caption text-on-surface-variant mt-1">Bölgeyi çok iyi bilen, saygılı ve profesyonel şoförlerimizle huzurlu yolculuk.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="mt-1 bg-surface-container p-2 rounded-full text-on-surface">
+<span class="material-symbols-outlined text-sm">cleaning_services</span>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface">Temiz Araçlar</h4>
+<p class="font-body-md text-caption text-on-surface-variant mt-1">Her yolculuk sonrası havalandırılan ve temizlenen modern araç filosu.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full py-section-gap px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter bg-on-background dark:bg-on-background mt-auto">
+<div class="col-span-1 md:col-span-1">
+<h2 class="text-headline-md font-headline-md font-bold text-primary-fixed mb-4">Sarıçam Melek Taksi</h2>
+<p class="font-body-md text-body-md text-secondary-fixed-dim mb-4">Güvenli, hızlı ve konforlu ulaşımın Sarıçam'daki değişmez adresi.</p>
+</div>
+<div class="col-span-1">
+<h3 class="font-label-bold text-label-bold text-primary-fixed mb-4">Hızlı Bağlantılar</h3>
+<ul class="space-y-2">
+<li><a class="font-body-md text-body-md text-secondary-fixed-dim hover:text-primary-fixed transition-colors" href="#">Hizmetler</a></li>
+<li><a class="font-body-md text-body-md text-secondary-fixed-dim hover:text-primary-fixed transition-colors" href="#">Bölgeler</a></li>
+<li><a class="font-body-md text-body-md text-secondary-fixed-dim hover:text-primary-fixed transition-colors" href="#">Neden Biz</a></li>
+<li><a class="font-body-md text-body-md text-secondary-fixed-dim hover:text-primary-fixed transition-colors" href="#">SSS</a></li>
+</ul>
+</div>
+<div class="col-span-1">
+<h3 class="font-label-bold text-label-bold text-primary-fixed mb-4">Yasal</h3>
+<ul class="space-y-2">
+<li><a class="font-body-md text-body-md text-secondary-fixed-dim hover:text-primary-fixed transition-colors" href="#">Gizlilik Politikası</a></li>
+<li><a class="font-body-md text-body-md text-secondary-fixed-dim hover:text-primary-fixed transition-colors" href="#">İletişim</a></li>
+</ul>
+</div>
+<div class="col-span-1 md:col-span-4 mt-8 pt-8 border-t border-surface-variant/20 text-center">
+<p class="font-caption text-caption text-secondary-fixed-dim">© 2024 Sarıçam Melek Taksi. Tüm hakları saklıdır.</p>
+</div>
+</footer>
+</body></html>

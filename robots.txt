@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://saricammelektaksi.com.tr/sitemap.xml

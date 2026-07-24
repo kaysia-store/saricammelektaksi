@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sarıçam Melek Taksi - 7/24 Taksi Hizmeti</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "yellow-brand": "#FFC107",
+                "on-tertiary-fixed": "#001a41",
+                "on-tertiary-container": "#0056b8",
+                "tertiary": "#005bc1",
+                "outline": "#80765f",
+                "on-secondary-fixed-variant": "#474746",
+                "inverse-on-surface": "#f1f1f1",
+                "surface-dim": "#dadada",
+                "background": "#f9f9f9",
+                "surface": "#f9f9f9",
+                "on-error-container": "#93000a",
+                "tertiary-container": "#bfd2ff",
+                "primary-container": "#ffcc00",
+                "on-error": "#ffffff",
+                "on-primary-fixed-variant": "#584400",
+                "surface-container-low": "#f3f3f3",
+                "secondary-container": "#e2dfde",
+                "secondary-fixed-dim": "#c8c6c5",
+                "primary-fixed-dim": "#f1c100",
+                "error-container": "#ffdad6",
+                "surface-bright": "#f9f9f9",
+                "surface-variant": "#e2e2e2",
+                "tertiary-fixed-dim": "#adc6ff",
+                "surface-container-lowest": "#ffffff",
+                "secondary": "#5f5e5e",
+                "tertiary-fixed": "#d8e2ff",
+                "on-background": "#1a1c1c",
+                "on-primary-container": "#6f5700",
+                "on-secondary": "#ffffff",
+                "outline-variant": "#d2c5ab",
+                "surface-container-high": "#e8e8e8",
+                "primary": "#745b00",
+                "surface-tint": "#745b00",
+                "on-secondary-container": "#636262",
+                "error": "#ba1a1a",
+                "primary-fixed": "#ffe08b",
+                "on-primary": "#ffffff",
+                "surface-container": "#eeeeee",
+                "on-secondary-fixed": "#1c1b1b",
+                "on-surface-variant": "#4e4632",
+                "surface-container-highest": "#e2e2e2",
+                "inverse-primary": "#f1c100",
+                "on-surface": "#1a1c1c",
+                "secondary-fixed": "#e5e2e1",
+                "inverse-surface": "#2f3131",
+                "on-primary-fixed": "#241a00",
+                "on-tertiary": "#ffffff",
+                "on-tertiary-fixed-variant": "#004493"
+              },
+              "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "2xl": "1rem",
+                "3xl": "1.5rem",
+                "full": "9999px"
+              },
+              "spacing": {
+                "section-gap": "80px",
+                "margin-desktop": "40px",
+                "base": "8px",
+                "margin-mobile": "16px",
+                "container-max": "1200px",
+                "gutter": "24px"
+              },
+              "fontFamily": {
+                "body-md": ["Inter", "sans-serif"],
+                "label-bold": ["Inter", "sans-serif"],
+                "display-lg-mobile": ["Montserrat", "sans-serif"],
+                "display-lg": ["Montserrat", "sans-serif"],
+                "caption": ["Inter", "sans-serif"],
+                "headline-md": ["Montserrat", "sans-serif"],
+                "body-lg": ["Inter", "sans-serif"]
+              },
+              "fontSize": {
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "label-bold": ["14px", {"lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+                "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "caption": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .glass-panel-dark {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface/90 backdrop-blur-md shadow-sm docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-black flex items-center gap-2">
+<span class="material-symbols-outlined text-yellow-brand text-3xl">local_taxi</span>
+            Sarıçam Melek Taksi
+        </div>
+<nav class="hidden md:flex gap-gutter items-center">
+<a class="font-label-bold text-label-bold text-secondary hover:text-black transition-colors px-3 py-2 rounded-lg" href="#services">Hizmetler</a>
+<a class="font-label-bold text-label-bold text-secondary hover:text-black transition-colors px-3 py-2 rounded-lg" href="#regions">Bölgeler</a>
+<a class="font-label-bold text-label-bold text-secondary hover:text-black transition-colors px-3 py-2 rounded-lg" href="#why-us">Neden Biz</a>
+<a class="font-label-bold text-label-bold text-secondary hover:text-black transition-colors px-3 py-2 rounded-lg" href="#faq">SSS</a>
+</nav>
+<button class="bg-yellow-brand text-black font-label-bold text-label-bold px-6 py-3 rounded-2xl shadow-lg hover:scale-105 transition-transform duration-150 flex items-center gap-2 h-[48px]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">call</span>
+            Taksi Çağır
+        </button>
+</div>
+</header>
+<main>
+<!-- Hero Section (Full Bleed Background) -->
+<section class="relative min-h-[90vh] flex items-center pt-20 pb-24 md:pt-32 md:pb-32 px-margin-mobile md:px-margin-desktop overflow-hidden">
+<!-- Background Image & Overlay -->
+<div class="absolute inset-0 z-0">
+<img alt="Sarıçam Taksi Arka Plan" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0J72FAWGlw6Ivf1ShKwbMsK2ga4wMF0G6lDddBfxvTn5yYtmrgT9A5y2LQ8XfgJPTOEz9iUWGBSqMJOF_LxYpkivhiDpJQCnrYsMmVZF4jiGEtiUtDh1IHMjrTBLKcNDcStpO7_h84TVfk-fQQpa3QCmm6oC47mBFnAFQGZWe5pO2-FLaVRirktuD-IF5inseDwq144QXLpnkwXOLpvhwDGb-EYTYizLwkAfBoaj5NXEXE9ngK-YnhDiTTIlXeKJdjN6__GAgYg"/>
+<div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<!-- Hero Content -->
+<div class="flex flex-col gap-8">
+<div class="flex flex-wrap gap-3">
+<span class="glass-panel-dark text-white font-label-bold text-label-bold px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
+<span class="material-symbols-outlined text-yellow-brand text-[18px]">schedule</span> 7/24 Hizmet
+                    </span>
+<span class="glass-panel-dark text-white font-label-bold text-label-bold px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
+<span class="material-symbols-outlined text-yellow-brand text-[18px]">bolt</span> Ortalama Varış: 5-10 dk
+                    </span>
+</div>
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-[64px] leading-tight text-white font-bold drop-shadow-lg">
+                    Sarıçam'da <span class="text-yellow-brand">7/24</span> Taksi Hizmeti
+                </h1>
+<p class="font-body-lg text-body-lg text-gray-200 max-w-lg text-lg drop-shadow-md">
+                    Bulunduğunuz konuma en yakın taksiyi dakikalar içinde yönlendiriyoruz. Güvenli, konforlu ve hızlı yolculuk için hemen çağırın.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 mt-2">
+<button class="bg-yellow-brand text-black font-headline-md text-[18px] font-bold px-8 py-4 rounded-2xl shadow-[0_8px_30px_rgba(255,193,7,0.3)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(255,193,7,0.4)] transition-all duration-200 flex items-center justify-center gap-3 h-[60px] w-full sm:w-auto">
+<span class="material-symbols-outlined text-[24px]" style="font-variation-settings: 'FILL' 1;">call</span>
+                        Hemen Taksi Çağır
+                    </button>
+<button class="bg-[#25D366] text-white font-headline-md text-[18px] font-bold px-8 py-4 rounded-2xl shadow-[0_8px_30px_rgba(37,211,102,0.3)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(37,211,102,0.4)] transition-all duration-200 flex items-center justify-center gap-3 h-[60px] w-full sm:w-auto">
+<span class="material-symbols-outlined text-[24px]">chat</span>
+                        WhatsApp ile Yaz
+                    </button>
+</div>
+<div class="flex flex-wrap gap-6 mt-4">
+<span class="flex items-center gap-2 text-base font-medium text-gray-300">
+<span class="material-symbols-outlined text-[20px] text-yellow-brand">verified_user</span> Güvenilir Şoförler
+                    </span>
+<span class="flex items-center gap-2 text-base font-medium text-gray-300">
+<span class="material-symbols-outlined text-[20px] text-yellow-brand">credit_card</span> Kart ile Ödeme
+                    </span>
+</div>
+</div>
+<!-- Hero Phone Mockup -->
+<div class="hidden lg:flex justify-end relative perspective-1000">
+<div class="w-[320px] h-[640px] bg-black rounded-[40px] border-[8px] border-gray-800 shadow-[0_20px_60px_rgba(0,0,0,0.5)] overflow-hidden relative transform rotate-y-[-10deg] rotate-x-[5deg] transition-transform duration-500 hover:rotate-0">
+<!-- Notch -->
+<div class="absolute top-0 inset-x-0 h-6 bg-black z-20 rounded-b-3xl w-1/2 mx-auto"></div>
+<!-- App Screen -->
+<div class="bg-surface h-full w-full relative flex flex-col">
+<!-- Map Area -->
+<div class="h-[60%] bg-gray-200 relative">
+<!-- Fake map background -->
+<div class="absolute inset-0 bg-[#e5e3df] opacity-80" style="background-image: radial-gradient(#d1cfcb 1px, transparent 1px); background-size: 20px 20px;"></div>
+<!-- Route Line -->
+<svg class="absolute inset-0 w-full h-full" preserveaspectratio="none">
+<path d="M 160 180 Q 200 250 120 300 T 150 380" fill="none" stroke="#000" stroke-dasharray="8 4" stroke-width="4"></path>
+</svg>
+<!-- Location Pins -->
+<div class="absolute top-[160px] left-[145px] text-black">
+<span class="material-symbols-outlined text-[32px] drop-shadow-md" style="font-variation-settings: 'FILL' 1;">person_pin_circle</span>
+</div>
+<div class="absolute top-[360px] left-[135px] text-yellow-brand">
+<span class="material-symbols-outlined text-[40px] drop-shadow-md" style="font-variation-settings: 'FILL' 1;">local_taxi</span>
+</div>
+<!-- Driver Info Card floating -->
+<div class="absolute bottom-4 left-4 right-4 bg-white rounded-2xl p-4 shadow-lg flex items-center gap-3">
+<div class="w-12 h-12 bg-gray-200 rounded-full flex-shrink-0 flex items-center justify-center overflow-hidden">
+<span class="material-symbols-outlined text-gray-500">person</span>
+</div>
+<div>
+<p class="font-bold text-sm">Ahmet Yılmaz</p>
+<p class="text-xs text-gray-500">01 T 1234 • Sarı Toyota</p>
+</div>
+<div class="ml-auto text-right">
+<p class="font-bold text-sm">5 dk</p>
+<p class="text-xs text-gray-500">Uzaklık</p>
+</div>
+</div>
+</div>
+<!-- Bottom Sheet -->
+<div class="h-[40%] bg-white rounded-t-3xl -mt-6 z-10 shadow-[0_-10px_20px_rgba(0,0,0,0.05)] p-6 flex flex-col gap-4">
+<div class="w-12 h-1.5 bg-gray-300 rounded-full mx-auto"></div>
+<h3 class="font-bold text-lg mt-2">Sarıçam Melek Taksi</h3>
+<div class="flex items-center gap-4 bg-gray-50 p-3 rounded-xl border border-gray-100">
+<div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">my_location</span>
+</div>
+<div>
+<p class="text-xs text-gray-500">Alış Noktası</p>
+<p class="font-semibold text-sm">Mevcut Konum</p>
+</div>
+</div>
+<button class="w-full bg-yellow-brand text-black font-bold py-3 rounded-xl mt-auto shadow-md">
+                                Taksiyi Onayla
+                            </button>
+</div>
+</div>
+</div>
+<!-- Floating Badge -->
+<div class="absolute -left-12 bottom-20 bg-white p-4 rounded-2xl shadow-xl flex items-center gap-4 animate-bounce" style="animation-duration: 3s;">
+<div class="w-12 h-12 bg-yellow-brand/20 rounded-full flex items-center justify-center text-yellow-600">
+<span class="material-symbols-outlined text-[24px]">thumb_up</span>
+</div>
+<div>
+<p class="font-bold text-black text-sm">100% Memnuniyet</p>
+<div class="flex text-yellow-brand text-sm mt-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-16 bg-white relative z-20 -mt-8 rounded-t-[40px] shadow-[0_-10px_40px_rgba(0,0,0,0.05)] px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<div class="bg-surface p-6 rounded-3xl text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-16 h-16 mx-auto bg-yellow-brand/10 text-yellow-600 rounded-2xl flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[32px]">group</span>
+</div>
+<h3 class="font-bold text-2xl text-black mb-1">5000+</h3>
+<p class="text-sm text-gray-600 font-medium">Mutlu Müşteri</p>
+</div>
+<div class="bg-surface p-6 rounded-3xl text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-16 h-16 mx-auto bg-yellow-brand/10 text-yellow-600 rounded-2xl flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[32px]">workspace_premium</span>
+</div>
+<h3 class="font-bold text-2xl text-black mb-1">15+ Yıl</h3>
+<p class="text-sm text-gray-600 font-medium">Deneyim</p>
+</div>
+<div class="bg-surface p-6 rounded-3xl text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-16 h-16 mx-auto bg-yellow-brand/10 text-yellow-600 rounded-2xl flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[32px]">update</span>
+</div>
+<h3 class="font-bold text-2xl text-black mb-1">7/24</h3>
+<p class="text-sm text-gray-600 font-medium">Kesintisiz Hizmet</p>
+</div>
+<div class="bg-surface p-6 rounded-3xl text-center border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
+<div class="w-16 h-16 mx-auto bg-yellow-brand/10 text-yellow-600 rounded-2xl flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-[32px]">thumb_up</span>
+</div>
+<h3 class="font-bold text-2xl text-black mb-1">%100</h3>
+<p class="text-sm text-gray-600 font-medium">Müşteri Memnuniyeti</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest" id="services">
+<div class="max-w-container-max mx-auto">
+<h2 class="font-display-lg text-3xl md:text-4xl font-bold text-center mb-12">Hizmetlerimiz</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="p-8 bg-surface rounded-3xl border border-gray-100 hover:shadow-lg transition-shadow">
+<span class="material-symbols-outlined text-4xl text-yellow-brand mb-4">location_city</span>
+<h3 class="font-headline-md text-xl font-bold mb-3">Şehir İçi Ulaşım</h3>
+<p class="text-gray-600">Sarıçam ve Adana genelinde güvenli ve hızlı şehir içi taksi hizmeti.</p>
+</div>
+<div class="p-8 bg-surface rounded-3xl border border-gray-100 hover:shadow-lg transition-shadow">
+<span class="material-symbols-outlined text-4xl text-yellow-brand mb-4">flight_takeoff</span>
+<h3 class="font-headline-md text-xl font-bold mb-3">Havalimanı Transferi</h3>
+<p class="text-gray-600">Şakirpaşa Havalimanı'na 7/24 konforlu ve tam zamanında transfer.</p>
+</div>
+<div class="p-8 bg-surface rounded-3xl border border-gray-100 hover:shadow-lg transition-shadow">
+<span class="material-symbols-outlined text-4xl text-yellow-brand mb-4">business_center</span>
+<h3 class="font-headline-md text-xl font-bold mb-3">Kurumsal Anlaşmalar</h3>
+<p class="text-gray-600">Şirket çalışanları ve misafirleri için özel kurumsal taşıma çözümleri.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Neighborhoods -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-surface" id="regions">
+<div class="max-w-container-max mx-auto">
+<h2 class="font-display-lg text-3xl md:text-4xl font-bold text-center mb-12">Hizmet Bölgelerimiz</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-3">
+<span class="material-symbols-outlined text-yellow-brand">map</span>
+<span class="font-bold">Buruk</span>
+</div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-3">
+<span class="material-symbols-outlined text-yellow-brand">map</span>
+<span class="font-bold">Orhangazi</span>
+</div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-3">
+<span class="material-symbols-outlined text-yellow-brand">map</span>
+<span class="font-bold">Gültepe</span>
+</div>
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-3">
+<span class="material-symbols-outlined text-yellow-brand">map</span>
+<span class="font-bold">Balcalı</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Us -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest overflow-hidden" id="why-us">
+<div class="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+<div class="rounded-3xl overflow-hidden shadow-2xl">
+<img alt="Temiz Taksi İçi" class="w-full h-auto object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTEo8dr5RkpHveBF5wrS7R-TwSjk1K1rpt3i4mv-W8fKdKGTjCTa7T111jUQFVHgpCrEiPcv2-nI98z32VfKJBIzrvCdJWxpghOfzTYXx8kYosdpC6glx2QEYxu6N0xqZIYqrPj-CpLwse_N3_TSiPsPmj-jTr7sMehRQrw1symhH5sWHZffPhmls2UTyiTO67S8uei1AM0upeB8i-zvQq1shJEoCeb0eey1WIGfxkqD1w6Sl7Wc1Dyqomd0_GNgfp2aaiCqtUsw"/>
+</div>
+<div>
+<h2 class="font-display-lg text-3xl md:text-4xl font-bold mb-6">Neden Bizi Seçmelisiniz?</h2>
+<p class="text-gray-600 mb-8 font-body-lg">Sarıçam'ın en köklü taksi durağı olarak size sadece bir yolculuk değil, güvenli ve konforlu bir deneyim sunuyoruz.</p>
+<ul class="flex flex-col gap-6">
+<li class="flex items-start gap-4">
+<div class="w-12 h-12 bg-yellow-brand/20 rounded-full flex items-center justify-center text-yellow-700 shrink-0">
+<span class="material-symbols-outlined">verified</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Deneyimli Şoförler</h4>
+<p class="text-gray-600 text-sm">Tüm şoförlerimiz özenle seçilmiş, tecrübeli ve bölgeye hakimdir.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="w-12 h-12 bg-yellow-brand/20 rounded-full flex items-center justify-center text-yellow-700 shrink-0">
+<span class="material-symbols-outlined">cleaning_services</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Temiz ve Bakımlı Araçlar</h4>
+<p class="text-gray-600 text-sm">Araçlarımız düzenli olarak temizlenir ve periyodik bakımları eksiksiz yapılır.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<div class="w-12 h-12 bg-yellow-brand/20 rounded-full flex items-center justify-center text-yellow-700 shrink-0">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Kolay Ödeme</h4>
+<p class="text-gray-600 text-sm">Nakit ödemenin yanı sıra temassız kredi kartı ile ödeme kolaylığı.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Process -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-surface" id="process">
+<div class="max-w-container-max mx-auto text-center">
+<h2 class="font-display-lg text-3xl md:text-4xl font-bold mb-12">Nasıl Çalışır?</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="flex flex-col items-center">
+<div class="w-20 h-20 bg-yellow-brand text-black rounded-full flex items-center justify-center text-3xl font-bold mb-6 shadow-lg">1</div>
+<h3 class="font-bold text-xl mb-3">Bize Ulaşın</h3>
+<p class="text-gray-600">Telefon veya WhatsApp üzerinden konumunuzu paylaşın.</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-20 h-20 bg-yellow-brand text-black rounded-full flex items-center justify-center text-3xl font-bold mb-6 shadow-lg">2</div>
+<h3 class="font-bold text-xl mb-3">Taksi Yola Çıksın</h3>
+<p class="text-gray-600">Size en yakın aracımız hemen bulunduğunuz konuma yönlendirilir.</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-20 h-20 bg-yellow-brand text-black rounded-full flex items-center justify-center text-3xl font-bold mb-6 shadow-lg">3</div>
+<h3 class="font-bold text-xl mb-3">Güvenle Ulaşın</h3>
+<p class="text-gray-600">Konforlu ve güvenli bir şekilde gitmek istediğiniz yere ulaşın.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ -->
+<section class="py-20 px-margin-mobile md:px-margin-desktop bg-surface-container-lowest" id="faq">
+<div class="max-w-container-max mx-auto">
+<h2 class="font-display-lg text-3xl md:text-4xl font-bold text-center mb-12">Sıkça Sorulan Sorular</h2>
+<div class="max-w-3xl mx-auto flex flex-col gap-4">
+<div class="bg-surface p-6 rounded-2xl border border-gray-100">
+<h3 class="font-bold text-lg mb-2 flex items-center gap-2"><span class="material-symbols-outlined text-yellow-brand">help</span> Kredi kartı geçiyor mu?</h3>
+<p class="text-gray-600">Evet, tüm araçlarımızda temassız özellikli pos cihazı bulunmaktadır.</p>
+</div>
+<div class="bg-surface p-6 rounded-2xl border border-gray-100">
+<h3 class="font-bold text-lg mb-2 flex items-center gap-2"><span class="material-symbols-outlined text-yellow-brand">help</span> 7/24 hizmetiniz var mı?</h3>
+<p class="text-gray-600">Evet, haftanın 7 günü 24 saat kesintisiz taksi hizmeti sunuyoruz.</p>
+</div>
+<div class="bg-surface p-6 rounded-2xl border border-gray-100">
+<h3 class="font-bold text-lg mb-2 flex items-center gap-2"><span class="material-symbols-outlined text-yellow-brand">help</span> Ortalama gelme süresi nedir?</h3>
+<p class="text-gray-600">Sarıçam merkez ve yakın çevreye ortalama 5-10 dakika içerisinde ulaşıyoruz.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#111111] text-white pt-20 pb-10 px-margin-mobile md:px-margin-desktop w-full relative z-10 rounded-t-[40px]">
+<div class="max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="md:col-span-1">
+<div class="font-headline-md text-headline-md font-bold text-yellow-brand mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-[32px]">local_taxi</span>
+                        Sarıçam Taksi
+                    </div>
+<p class="text-gray-400 text-sm mb-6 leading-relaxed">
+                        Adana Sarıçam bölgesinde 15 yılı aşkın süredir güvenilir, konforlu ve hızlı taksi hizmeti sunuyoruz. 7 gün 24 saat bir telefon uzağınızdayız.
+                    </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-yellow-brand hover:text-black transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-yellow-brand hover:text-black transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">link</span>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-6 text-white">Hizmet Bölgeleri</h4>
+<ul class="flex flex-col gap-3 text-gray-400">
+<li><a class="hover:text-yellow-brand transition-colors" href="#">Buruk Mahallesi</a></li>
+<li><a class="hover:text-yellow-brand transition-colors" href="#">Orhangazi Mahallesi</a></li>
+<li><a class="hover:text-yellow-brand transition-colors" href="#">Yavuz Sultan Selim</a></li>
+<li><a class="hover:text-yellow-brand transition-colors" href="#">Gültepe Mahallesi</a></li>
+<li><a class="hover:text-yellow-brand transition-colors" href="#">Balcalı Hastanesi</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-6 text-white">Hızlı Linkler</h4>
+<ul class="flex flex-col gap-3 text-gray-400">
+<li><a class="hover:text-yellow-brand transition-colors" href="#services">Hizmetlerimiz</a></li>
+<li><a class="hover:text-yellow-brand transition-colors" href="#process">Nasıl Çalışır?</a></li>
+<li><a class="hover:text-yellow-brand transition-colors" href="#why-us">Hakkımızda</a></li>
+<li><a class="hover:text-yellow-brand transition-colors" href="#faq">Sıkça Sorulan Sorular</a></li>
+<li><a class="hover:text-yellow-brand transition-colors" href="#">Gizlilik Politikası</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-6 text-white">İletişim</h4>
+<ul class="flex flex-col gap-4 text-gray-400">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-yellow-brand mt-1" style="font-variation-settings: 'FILL' 1;">location_on</span>
+<span>Sarıçam Merkez, Adana, Türkiye</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-yellow-brand" style="font-variation-settings: 'FILL' 1;">call</span>
+<a class="hover:text-yellow-brand font-bold text-white text-lg" href="tel:+905555555555">0555 555 55 55</a>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-yellow-brand" style="font-variation-settings: 'FILL' 1;">mail</span>
+<a class="hover:text-yellow-brand" href="mailto:info@saricamtaxi.com">info@saricamtaxi.com</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-caption text-sm text-gray-500 text-center md:text-left">
+                    © 2024 Sarıçam Melek Taksi. Tüm hakları saklıdır.
+                </p>
+<div class="text-sm text-gray-500 flex gap-4">
+<span>Güvenli Yolculuk</span>
+<span>•</span>
+<span>7/24 Hizmet</span>
+</div>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

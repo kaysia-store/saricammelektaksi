@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Sarıçam Melek Taksi">
+  <!-- Letter M -->
+  <path
+    d="M8 48V16l16 22L40 16v32"
+    fill="none"
+    stroke="#FFC107"
+    stroke-width="4"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <!-- Single wing to the right of M -->
+  <path
+    d="M44 22c6 2 10 7 12 14"
+    fill="none"
+    stroke="#FFC107"
+    stroke-width="2.75"
+    stroke-linecap="round"
+  />
+  <path
+    d="M44 28c5 1.5 8 5.5 9.5 11"
+    fill="none"
+    stroke="#FFC107"
+    stroke-width="2"
+    stroke-linecap="round"
+    opacity="0.55"
+  />
+  <path
+    d="M44 34c3.5 1 6 4 7 8"
+    fill="none"
+    stroke="#FFC107"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    opacity="0.3"
+  />
+</svg>
