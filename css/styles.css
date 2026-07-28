@@ -248,8 +248,11 @@ button {
 }
 
 .logo-text {
-  display: inline;
+  display: inline !important;
+  visibility: visible !important;
+  opacity: 1 !important;
   min-width: 0;
+  white-space: normal;
 }
 
 @media (min-width: 768px) {
@@ -492,7 +495,7 @@ button {
   color: #a7f3d0;
   font-weight: 600;
   font-size: 0.8125rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 2rem;
   backdrop-filter: blur(8px);
 }
 
@@ -522,7 +525,8 @@ button {
 }
 
 .hero-app-title {
-  margin-bottom: 2.25rem;
+  margin-bottom: 1rem;
+  font-size: clamp(2.55rem, 8vw, 4rem);
   text-shadow: 0 4px 28px rgba(0, 0, 0, 0.45);
   animation: heroTitleIn 0.7s ease both;
 }

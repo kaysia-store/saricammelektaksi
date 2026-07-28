@@ -254,7 +254,12 @@
     if (!el) return;
     var hour = new Date().getHours();
     var eta = hour >= 7 && hour <= 21 ? "6–9 dk" : "5–8 dk";
-    el.textContent = "Şu an müsait · Ort. " + eta;
+    var text = el.querySelector(".live-pill-text");
+    if (text) {
+      text.textContent = "Şu an müsait · Ort. " + eta;
+    } else {
+      el.textContent = "Şu an müsait · Ort. " + eta;
+    }
   }
 
   document.addEventListener("DOMContentLoaded", function () {
