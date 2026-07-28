@@ -192,22 +192,28 @@
   function initStickyFab() {
     var fab = $("#sticky-fab");
     var hero = $("#hero");
-    if (!fab || !hero) return;
+    if (!fab) return;
+
+    // Always keep FAB above the page; reveal full stack after leaving hero
+    fab.classList.add("visible");
+
+    if (!hero) return;
 
     if ("IntersectionObserver" in window) {
       var observer = new IntersectionObserver(
         function (entries) {
           entries.forEach(function (entry) {
-            fab.classList.toggle("visible", !entry.isIntersecting);
+            fab.classList.toggle("fab-compact", entry.isIntersecting);
           });
         },
         { threshold: 0.08, rootMargin: "-64px 0px 0px 0px" }
       );
       observer.observe(hero);
+      fab.classList.add("fab-compact");
     } else {
       function onScroll() {
         var rect = hero.getBoundingClientRect();
-        fab.classList.toggle("visible", rect.bottom < 80);
+        fab.classList.toggle("fab-compact", rect.bottom >= 80);
       }
       window.addEventListener("scroll", onScroll, { passive: true });
       onScroll();

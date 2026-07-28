@@ -46,6 +46,13 @@ body {
   background: var(--black);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* PWA standalone */
+html.is-pwa body {
+  min-height: 100dvh;
 }
 
 img {
@@ -168,10 +175,19 @@ button {
 .btn-whatsapp {
   background: var(--whatsapp);
   color: #fff;
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.28);
 }
 
 .btn-whatsapp:hover {
   background: var(--whatsapp-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 36px rgba(37, 211, 102, 0.38);
+}
+
+.btn-whatsapp svg {
+  width: 1.35rem;
+  height: 1.35rem;
+  flex-shrink: 0;
 }
 
 .btn-nav {
@@ -255,7 +271,9 @@ button {
   position: sticky;
   top: 0;
   z-index: 100;
-  height: var(--header-h);
+  min-height: var(--header-h);
+  height: auto;
+  padding-top: env(safe-area-inset-top);
   background: rgba(12, 12, 12, 0.82);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -263,7 +281,7 @@ button {
 }
 
 .header-inner {
-  height: 100%;
+  height: var(--header-h);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -358,6 +376,13 @@ button {
   color: var(--text);
 }
 
+.hero-app {
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: calc(var(--header-h) + 1.5rem) 0 2.5rem;
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -369,7 +394,7 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 45%;
+  object-position: center 40%;
   transform: scale(1.08);
   animation: heroZoom 22s ease-in-out infinite alternate;
 }
@@ -388,8 +413,14 @@ button {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(12, 12, 12, 0.35) 0%, rgba(12, 12, 12, 0.55) 40%, rgba(12, 12, 12, 0.92) 100%),
-    linear-gradient(90deg, rgba(12, 12, 12, 0.88) 0%, rgba(12, 12, 12, 0.45) 55%, rgba(12, 12, 12, 0.25) 100%);
+    linear-gradient(180deg, rgba(12, 12, 12, 0.45) 0%, rgba(12, 12, 12, 0.35) 35%, rgba(12, 12, 12, 0.78) 100%),
+    radial-gradient(ellipse 80% 60% at 50% 55%, rgba(12, 12, 12, 0.15) 0%, rgba(12, 12, 12, 0.7) 100%);
+}
+
+.hero-app .hero-bg::after {
+  background:
+    linear-gradient(180deg, rgba(12, 12, 12, 0.55) 0%, rgba(12, 12, 12, 0.28) 40%, rgba(12, 12, 12, 0.82) 100%),
+    radial-gradient(ellipse 70% 55% at 50% 45%, transparent 0%, rgba(12, 12, 12, 0.55) 100%);
 }
 
 .hero-wing {
@@ -426,6 +457,16 @@ button {
   margin-left: max(var(--margin), calc((100% - var(--container)) / 2 + var(--margin)));
 }
 
+.hero-app-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 36rem;
+  margin-inline: auto;
+  margin-left: auto;
+}
+
 .live-pill {
   display: inline-flex;
   align-items: center;
@@ -438,6 +479,7 @@ button {
   font-weight: 600;
   font-size: 0.8125rem;
   margin-bottom: 1.25rem;
+  backdrop-filter: blur(8px);
 }
 
 .live-dot {
@@ -465,6 +507,12 @@ button {
   margin-bottom: 1rem;
 }
 
+.hero-app-title {
+  margin-bottom: 2.25rem;
+  text-shadow: 0 4px 28px rgba(0, 0, 0, 0.45);
+  animation: heroTitleIn 0.7s ease both;
+}
+
 .hero-lead {
   color: #d4d4d4;
   margin-bottom: 1.75rem;
@@ -472,16 +520,150 @@ button {
 }
 
 .hero-actions {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 0.75rem;
   margin-bottom: 1.35rem;
 }
 
 @media (min-width: 640px) {
   .hero-actions {
-    flex-direction: row;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.hero-actions .btn {
+  width: 100%;
+  min-height: 56px;
+  justify-content: center;
+}
+
+.hero-orbs {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(1.1rem, 5vw, 2rem);
+  margin-bottom: 2rem;
+  animation: heroOrbsIn 0.75s ease 0.12s both;
+}
+
+.hero-orb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  width: 5.5rem;
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  transition: transform 0.22s ease;
+}
+
+.hero-orb:hover {
+  transform: translateY(-4px);
+}
+
+.hero-orb:active {
+  transform: scale(0.96);
+}
+
+.hero-orb-icon {
+  width: 4.75rem;
+  height: 4.75rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+  transition: box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.hero-orb:hover .hero-orb-icon {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.hero-orb-icon .material-symbols-outlined {
+  font-size: 2rem;
+  font-variation-settings: "FILL" 1;
+}
+
+.hero-orb-icon svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.hero-orb-label {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+}
+
+.hero-orb-phone .hero-orb-icon {
+  background: #1f1f1f;
+  color: var(--text);
+  border: 1px solid var(--line-strong);
+  backdrop-filter: blur(10px);
+}
+
+.hero-orb-whatsapp .hero-orb-icon {
+  background: var(--whatsapp);
+  color: #fff;
+}
+
+.hero-orb-taxi .hero-orb-icon {
+  background: var(--yellow);
+  color: var(--yellow-text);
+}
+
+.hero-scroll {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  animation: heroScrollBounce 1.8s ease-in-out infinite;
+}
+
+.hero-scroll .material-symbols-outlined {
+  font-size: 2rem;
+}
+
+@keyframes heroTitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroOrbsIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes heroScrollBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
   }
 }
 
@@ -702,7 +884,7 @@ button {
 .region-card {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 0.75rem;
   background: var(--ink);
   padding: 1.15rem 1.1rem;
   border-radius: 1rem;
@@ -715,6 +897,13 @@ button {
   transform: translateY(-2px);
 }
 
+.region-card-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+
 .region-card .top {
   display: flex;
   align-items: center;
@@ -722,7 +911,7 @@ button {
   font-weight: 700;
 }
 
-.region-card .material-symbols-outlined {
+.region-card .top .material-symbols-outlined {
   color: var(--yellow);
   font-size: 1.25rem;
 }
@@ -731,6 +920,39 @@ button {
   font-size: 0.75rem;
   color: var(--muted-2);
   padding-left: 1.75rem;
+}
+
+.region-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 40px;
+  padding: 0.45rem 0.85rem;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--line-strong);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.region-call .material-symbols-outlined {
+  font-size: 1.15rem;
+  color: var(--yellow);
+  font-variation-settings: "FILL" 1;
+}
+
+.region-call:hover {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--yellow-text);
+}
+
+.region-call:hover .material-symbols-outlined {
+  color: var(--yellow-text);
 }
 
 .split {
@@ -1109,17 +1331,22 @@ button {
 /* Sticky FAB labeled */
 .sticky-fab {
   position: fixed;
-  right: 0.85rem;
-  bottom: 1.1rem;
-  z-index: 90;
+  right: max(0.85rem, env(safe-area-inset-right));
+  bottom: max(1.1rem, calc(env(safe-area-inset-bottom) + 0.65rem));
+  z-index: 120;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  align-items: stretch;
+  gap: 0.7rem;
   opacity: 0;
   visibility: hidden;
   transform: translateY(1.25rem) scale(0.96);
-  transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s;
+  transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s, bottom 0.28s ease;
   pointer-events: none;
+}
+
+html.pwa-install-open .sticky-fab {
+  bottom: max(6.5rem, calc(env(safe-area-inset-bottom) + 5.75rem));
 }
 
 .sticky-fab.visible {
@@ -1129,27 +1356,65 @@ button {
   pointer-events: auto;
 }
 
+/* On hero: only Ara stays; WA + Çağır expand after scroll */
+.sticky-fab.fab-compact {
+  gap: 0;
+}
+
+.sticky-fab.fab-compact .fab-whatsapp,
+.sticky-fab.fab-compact .fab-taxi {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.85) translateY(8px);
+  pointer-events: none;
+  max-height: 0;
+  min-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+  overflow: hidden;
+  border-width: 0;
+}
+
+.sticky-fab .fab-whatsapp,
+.sticky-fab .fab-taxi {
+  transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s, max-height 0.28s ease, min-height 0.28s ease, padding 0.28s ease;
+}
+
 .fab {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  min-height: 48px;
-  padding: 0.55rem 0.95rem 0.55rem 0.7rem;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 7.75rem;
+  min-height: 56px;
+  padding: 0.7rem 0.95rem;
   border-radius: 9999px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.42);
   font-weight: 700;
-  font-size: 0.8125rem;
+  font-size: 0.9rem;
   font-family: var(--font-display);
   transition: transform 0.2s;
 }
 
 .fab:hover {
-  transform: scale(1.04);
+  transform: scale(1.05);
 }
 
 .fab-taxi {
   background: var(--yellow);
   color: var(--yellow-text);
+}
+
+.fab-whatsapp {
+  background: var(--whatsapp);
+  color: #fff;
+}
+
+.fab-whatsapp svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  flex-shrink: 0;
 }
 
 .fab-phone {
@@ -1159,7 +1424,7 @@ button {
 }
 
 .fab .material-symbols-outlined {
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   font-variation-settings: "FILL" 1;
 }
 
@@ -1556,7 +1821,7 @@ button {
 .toast {
   position: fixed;
   left: 50%;
-  bottom: 7rem;
+  bottom: max(7rem, calc(env(safe-area-inset-bottom) + 6.25rem));
   transform: translateX(-50%) translateY(0.75rem);
   z-index: 210;
   background: #1a1a1a;
@@ -1583,9 +1848,9 @@ button {
 /* PWA install banner */
 .pwa-install {
   position: fixed;
-  left: 0.85rem;
-  right: 0.85rem;
-  bottom: 1rem;
+  left: max(0.85rem, env(safe-area-inset-left));
+  right: max(0.85rem, env(safe-area-inset-right));
+  bottom: max(1rem, calc(env(safe-area-inset-bottom) + 0.5rem));
   z-index: 120;
   display: flex;
   align-items: center;
@@ -1601,6 +1866,10 @@ button {
   transform: translateY(1.25rem);
   transition: opacity 0.28s ease, transform 0.28s ease, visibility 0.28s;
   pointer-events: none;
+}
+
+html.is-pwa .pwa-install {
+  display: none !important;
 }
 
 .pwa-install.show {
@@ -1683,6 +1952,9 @@ button {
   .hero-bg img,
   .hero-wing,
   .live-dot,
+  .hero-app-title,
+  .hero-orbs,
+  .hero-scroll,
   .sticky-fab {
     animation: none !important;
   }

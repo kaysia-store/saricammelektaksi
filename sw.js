@@ -1,8 +1,9 @@
 /* Sarıçam Melek Taksi — Service Worker */
-const CACHE = "melek-taksi-v1";
+const CACHE = "melek-taksi-v2";
 const PRECACHE = [
   "/",
   "/index.html",
+  "/offline.html",
   "/manifest.webmanifest",
   "/css/styles.css",
   "/js/main.js",
@@ -12,44 +13,107 @@ const PRECACHE = [
   "/images/pwa/icon-192.png",
   "/images/pwa/icon-512.png",
   "/images/pwa/apple-touch-icon.png",
-  "/images/pwa/splash-1080x1920.png",
-  "/offline.html",
 ];
 
-self.addEventListener("install", (event) => {
-  event.waitUntil(
-    caches.open(CACHE).then((cache) => cache.addAll(PRECACHE)).then(() => self.skipWaiting())
+function isHTMLRequest(request) {
+  if (request.mode === "navigate") return true;
+  const accept = request.headers.get("accept") || "";
+  return accept.includes("text/html");
+}
+
+function isCacheableResponse(response) {
+  return response && response.status === 200 && response.type === "basic";
+}
+
+async function precacheAll() {
+  const cache = await caches.open(CACHE);
+  await Promise.all(
+    PRECACHE.map(async (url) => {
+      try {
+        await cache.add(url);
+      } catch (err) {
+        /* tek dosya hatası kurulumu bozmasın */
+      }
+    })
   );
+}
+
+async function networkFirst(request) {
+  try {
+    const response = await fetch(request);
+    if (isCacheableResponse(response)) {
+      const cache = await caches.open(CACHE);
+      cache.put(request, response.clone());
+    }
+    return response;
+  } catch (err) {
+    const cached = await caches.match(request);
+    if (cached) return cached;
+    if (isHTMLRequest(request)) {
+      return (
+        (await caches.match("/offline.html")) ||
+        (await caches.match("/index.html")) ||
+        Response.error()
+      );
+    }
+    throw err;
+  }
+}
+
+async function staleWhileRevalidate(request) {
+  const cache = await caches.open(CACHE);
+  const cached = await cache.match(request);
+
+  const networkPromise = fetch(request)
+    .then((response) => {
+      if (isCacheableResponse(response)) {
+        cache.put(request, response.clone());
+      }
+      return response;
+    })
+    .catch(() => cached);
+
+  return cached || networkPromise;
+}
+
+self.addEventListener("install", (event) => {
+  event.waitUntil(precacheAll().then(() => self.skipWaiting()));
 });
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))
-    ).then(() => self.clients.claim())
+    caches
+      .keys()
+      .then((keys) =>
+        Promise.all(keys.filter((key) => key !== CACHE).map((key) => caches.delete(key)))
+      )
+      .then(() => self.clients.claim())
   );
 });
 
 self.addEventListener("fetch", (event) => {
-  const req = event.request;
-  if (req.method !== "GET") return;
+  const request = event.request;
+  if (request.method !== "GET") return;
 
-  const url = new URL(req.url);
+  const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
 
-  event.respondWith(
-    caches.match(req).then((cached) => {
-      const network = fetch(req)
-        .then((res) => {
-          if (res && res.status === 200 && res.type === "basic") {
-            const copy = res.clone();
-            caches.open(CACHE).then((cache) => cache.put(req, copy));
-          }
-          return res;
-        })
-        .catch(() => cached || caches.match("/offline.html") || caches.match("/index.html"));
+  /* Service worker ve manifest her zaman ağdan */
+  if (url.pathname === "/sw.js" || url.pathname.endsWith(".webmanifest")) {
+    event.respondWith(fetch(request).catch(() => caches.match(request)));
+    return;
+  }
 
-      return cached || network;
-    })
-  );
+  if (isHTMLRequest(request)) {
+    event.respondWith(networkFirst(request));
+    return;
+  }
+
+  event.respondWith(staleWhileRevalidate(request));
+});
+
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
 });

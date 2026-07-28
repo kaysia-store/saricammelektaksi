@@ -2,49 +2,96 @@
 <html lang="tr">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
   <meta name="theme-color" content="#0c0c0c"/>
-  <title>Sarıçam Melek Taksi</title>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <link rel="manifest" href="manifest.webmanifest"/>
+  <link rel="apple-touch-icon" href="images/pwa/apple-touch-icon.png"/>
+  <title>Çevrimdışı — Sarıçam Melek Taksi</title>
   <style>
+    :root {
+      --yellow: #ffc107;
+      --black: #0c0c0c;
+      --text: #f3f3f3;
+      --muted: #a3a3a3;
+    }
+    * { box-sizing: border-box; }
     html, body {
       margin: 0;
-      height: 100%;
-      background: #0c0c0c;
-      color: #f3f3f3;
-      font-family: system-ui, sans-serif;
+      min-height: 100%;
+      min-height: 100dvh;
+      background: var(--black);
+      color: var(--text);
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    body {
       display: grid;
       place-items: center;
       text-align: center;
+      padding: max(1.5rem, env(safe-area-inset-top)) max(1.25rem, env(safe-area-inset-right)) max(1.5rem, env(safe-area-inset-bottom)) max(1.25rem, env(safe-area-inset-left));
     }
+    .card { max-width: 22rem; }
     img {
-      width: min(70vw, 280px);
+      width: min(58vw, 220px);
       height: auto;
-      margin-bottom: 1.25rem;
+      margin: 0 auto 1.25rem;
+      display: block;
     }
     h1 {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       margin: 0 0 0.5rem;
-      color: #ffc107;
+      color: var(--yellow);
+      letter-spacing: 0.01em;
     }
-    p { margin: 0; color: #a3a3a3; font-size: 0.95rem; }
-    a {
-      display: inline-block;
+    p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.45;
+    }
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
       margin-top: 1.5rem;
-      color: #0c0c0c;
-      background: #ffc107;
-      text-decoration: none;
-      font-weight: 700;
+    }
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
       padding: 0.75rem 1.25rem;
       border-radius: 0.75rem;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .primary {
+      color: #1a1400;
+      background: var(--yellow);
+    }
+    .phone {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
     }
   </style>
 </head>
 <body>
-  <div>
-    <img src="images/logo-brand.png" alt="Sarıçam Melek Taksi"/>
-    <h1>Sarıçam Melek Taksi</h1>
-    <p>Bağlantı yok. Ana sayfaya dönüp tekrar deneyin.</p>
-    <a href="index.html">Ana Sayfa</a>
+  <div class="card">
+    <img src="images/logo-brand.png" alt="Sarıçam Melek Taksi" width="220" height="106"/>
+    <h1>Bağlantı yok</h1>
+    <p>İnternet bağlantınızı kontrol edip tekrar deneyin. Acil çağrı için telefonla ulaşabilirsiniz.</p>
+    <div class="actions">
+      <a class="primary" href="index.html">Ana Sayfa</a>
+      <a class="phone" href="tel:+905521665501">Ara: 0552 166 5501</a>
+    </div>
   </div>
+  <script>
+    window.addEventListener("online", function () {
+      location.replace("index.html");
+    });
+  </script>
 </body>
 </html>
